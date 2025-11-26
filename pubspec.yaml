@@ -14,10 +14,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^6.0.0
-  stream_channel:
   ffi:
-  test_api:
-  test_core:
 
 flutter:
   uses-material-design: true

@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,5 +13,11 @@ class MainApp extends StatelessWidget {
     return const MaterialApp(
       home: Scaffold(body: Center(child: Text('Hello World!'))),
     );
+  }
+}
+
+void dlog(Object message) {
+  if (kDebugMode) {
+    print(message);
   }
 }
