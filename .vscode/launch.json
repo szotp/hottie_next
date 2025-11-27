@@ -5,23 +5,11 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "hottie_next",
+            "name": "runner",
             "request": "launch",
             "type": "dart",
-            "program": "test/together.dart",
-            "deviceId": "flutter-tester",
-        },
-        {
-            "name": "hottie_next (profile mode)",
-            "request": "launch",
-            "type": "dart",
-            "flutterMode": "profile"
-        },
-        {
-            "name": "hottie_next (release mode)",
-            "request": "launch",
-            "type": "dart",
-            "flutterMode": "release"
+            "program": "test/runner.dart",
+            "deviceId": "flutter-tester"
         }
     ]
 }

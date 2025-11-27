@@ -16,7 +16,7 @@ class MainApp extends StatelessWidget {
   }
 }
 
-void dlog(Object message) {
+void dlog(dynamic message) {
   if (kDebugMode) {
     print(message);
   }
