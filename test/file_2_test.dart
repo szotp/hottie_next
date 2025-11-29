@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hottie_next/calculator.dart';
 
-import 'vm_deps.dart';
+import 'hottie/dependency_finder.dart';
 
 @pragma("vm:entry-point")
 Future<void> test2() => runTests(main);
