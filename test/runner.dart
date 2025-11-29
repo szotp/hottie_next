@@ -1,31 +1,39 @@
-import 'dart:ffi';
+// ignore_for_file: unused_import
 
-import 'package:ffi/ffi.dart';
+import 'dart:async';
+
 import 'package:flutter/widgets.dart';
 
-import 'file_1_test.dart' as t1;
-import 'file_2_test.dart' as t2;
+// import 'file_1_test.dart' as f1;
+import 'file_2_test.dart' as f2;
+import 'vm_deps.dart';
 
 // in VSCode, pressing F5 should run this
 // can be run from terminal, but won't reload automatically
 // flutter run test/runner.dart -d flutter-tester
-void main() {
+Future<void> main() async {
   runApp(
     OnReassemble(
       repeats: 1, // increase to test what happens with more spawns
       spawn: () {
-        _spawn('_t1'.toNativeUtf8(), ''.toNativeUtf8());
-        _spawn('_t2'.toNativeUtf8(), ''.toNativeUtf8());
+        printLibraries();
+        // spawn('hottie');
       },
     ),
   );
 }
 
-@pragma("vm:entry-point")
-void _t1() => t1.main();
+// @pragma("vm:entry-point")
+// Future<void> _t1() async {
+//   await vm_deps.main([]);
+//   runZoned(t1.main, zoneSpecification: ZoneSpecification(print: (self, parent, zone, line) {}));
+// }
 
-@pragma("vm:entry-point")
-void _t2() => t2.main();
+// @pragma("vm:entry-point")
+// Future<void> _t2() async {
+//   await vm_deps.main([]);
+//   runZoned(t2.main, zoneSpecification: ZoneSpecification(print: (self, parent, zone, line) {}));
+// }
 
 /// BOILERPLATE BELOW
 
@@ -60,6 +68,3 @@ class _OnReassembleState extends State<OnReassemble> {
   @override
   Widget build(BuildContext context) => const Placeholder();
 }
-
-@Native<Void Function(Pointer<Utf8>, Pointer<Utf8>)>(symbol: 'Spawn')
-external void _spawn(Pointer<Utf8> entrypoint, Pointer<Utf8> route);

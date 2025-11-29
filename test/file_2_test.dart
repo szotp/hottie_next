@@ -1,27 +1,25 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:hottie_next/calculator.dart';
+
+import 'vm_deps.dart';
+
+@pragma("vm:entry-point")
+Future<void> test2() => runTests(main);
 
 void main() {
-  testWidgets("2/1", (tester) async {
-    final text = Text('Hello');
-    await tester.pumpWidget(Directionality(textDirection: TextDirection.ltr, child: text));
-    final node = tester.getSemantics(find.byWidget(text));
-    expect(node.label, equals('Hello'));
-  });
-
-  test("2/2", () async {
+  test("simple 1", () async {
     expect(1, 1);
   });
 
-  test("2/3", () async {
+  test("simple 2", () async {
     expect(1, 1);
   });
 
-  test("2/4", () async {
+  test("simple 3", () async {
     expect(1, 1);
   });
 
-  test("2/5", () async {
-    expect(1, 1);
+  test("simple 4", () async {
+    expect(calculate(0, 1), 1);
   });
 }
